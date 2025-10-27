@@ -52,20 +52,15 @@ public class ConsoleUI {
         try {
             System.out.print("Введите путь к файлу для шифрования: ");
             String filePath = consoleScanner.nextLine();
-
             String text = FileService.readFile(filePath);
 
             System.out.print("Введите ключ шифрование (целое число): ");
             int key = Integer.parseInt(consoleScanner.nextLine());
-
             String encryptedText = CaesarCipher.encrypt(text, key);
-
             String outputPath = getOutputPath(filePath, "encrypted");
-
             FileService.writeFile(outputPath, encryptedText);
 
             System.out.println("Файл успешно зашифрован: " + outputPath);
-
         } catch (NumberFormatException e) {
             System.out.println("Ошибка: ключ должен быть целым числом.");
         } catch (Exception e) {
@@ -77,20 +72,15 @@ public class ConsoleUI {
         try {
             System.out.print("Введите путь к файлу для расшифрования: ");
             String filePath = consoleScanner.nextLine();
-
             String text = FileService.readFile(filePath);
 
             System.out.print("Введите ключ дешифровки (целое число): ");
             int key = Integer.parseInt(consoleScanner.nextLine());
-
             String decryptedText = CaesarCipher.decrypt(text, key);
-
             String outputPath = getOutputPath(filePath, "decrypted");
-
             FileService.writeFile(outputPath, decryptedText);
 
             System.out.println("Файл успешно расшифрован: " + outputPath);
-
         } catch (NumberFormatException e) {
             System.out.println("Ошибка: ключ должен быть целым числом.");
         } catch (Exception e) {
@@ -102,11 +92,8 @@ public class ConsoleUI {
         try {
             System.out.print("Введите путь к файлу для brute force атаки: " );
             String filePath = consoleScanner.nextLine();
-
             String text = FileService.readFile(filePath);
-
             BruteForce.decryptAllVariants(text, filePath);
-
         } catch (Exception e) {
             System.out.println("Ошибка при brute force: " + e.getMessage());
         }
@@ -115,7 +102,6 @@ public class ConsoleUI {
     private String getOutputPath(String originalPath, String suffix) {
         int dotIndex = originalPath.lastIndexOf('.');
         if (dotIndex != -1) {
-
             // Если есть расширение, вставляем суффикс перед точкой
             return originalPath.substring(0, dotIndex) + "_" + suffix + originalPath.substring((dotIndex));
         }

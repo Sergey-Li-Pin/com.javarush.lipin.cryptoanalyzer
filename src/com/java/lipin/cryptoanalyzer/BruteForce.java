@@ -10,7 +10,6 @@ import java.time.format.DateTimeFormatter;
 public class BruteForce {
 
     public static void decryptAllVariants(String encryptedText, String originalFilePath) throws IOException {
-
         // Создаем уникальное имя папки с timestamp для организации результатов
         String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy_HH:mm:ss"));
         String resultsDirName = "brute_force_results_" + timestamp;
@@ -61,5 +60,4 @@ public class BruteForce {
         System.out.println("Brute force завершен! Все " + totalKeys + " вариантов сохранены в папке: " + absoluteresultPath);
         System.out.println("Для нахождения правильного текста просмотрите файлы и найдите необходимый.");
     }
-
 }

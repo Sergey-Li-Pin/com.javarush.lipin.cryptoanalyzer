@@ -13,7 +13,6 @@ public class CaesarCipher {
     }
 
     private static String processText(String text, int key, boolean encrypt) {
-
         // Обработка крайних случаев
         if (text == null || text.isEmpty()) {
             return text;
@@ -33,7 +32,6 @@ public class CaesarCipher {
             int index = ALPHABET.indexOf(lowerChar);
 
             if (index != -1) {
-
                 // Символ найден в алфавите - применяем преобразование
                 int newIndex;
                 if (encrypt) {
@@ -51,12 +49,10 @@ public class CaesarCipher {
 
                 result.append(proccessedChar);
             } else {
-
                 // Символ не найден в алфавите - оставляем без изменений
                 result.append(character);
             }
         }
-
         return result.toString();
     }
 
