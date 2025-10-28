@@ -1,4 +1,4 @@
-package com.java.lipin.cryptoanalyzer;
+package com.javarush.lipin.cryptoanalyzer.services.file;
 
 import java.io.IOException;
 import java.nio.file.Files;

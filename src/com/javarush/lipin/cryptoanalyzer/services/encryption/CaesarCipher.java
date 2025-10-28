@@ -1,4 +1,4 @@
-package com.java.lipin.cryptoanalyzer;
+package com.javarush.lipin.cryptoanalyzer.services.encryption;
 
 public class CaesarCipher {
 

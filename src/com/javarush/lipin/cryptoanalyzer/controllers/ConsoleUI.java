@@ -1,6 +1,10 @@
-package com.java.lipin.cryptoanalyzer;
+package com.javarush.lipin.cryptoanalyzer.controllers;
 
 import java.util.Scanner;
+import com.javarush.lipin.cryptoanalyzer.services.encryption.CaesarCipher;
+import com.javarush.lipin.cryptoanalyzer.services.analysis.BruteForce;
+//import com.javarush.lipin.cryptoanalyzer.services.analysis.FrequencyAnalyzer;
+import com.javarush.lipin.cryptoanalyzer.services.file.FileService;
 
 public class ConsoleUI {
 

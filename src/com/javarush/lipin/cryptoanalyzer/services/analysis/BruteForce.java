@@ -1,4 +1,4 @@
-package com.java.lipin.cryptoanalyzer;
+package com.javarush.lipin.cryptoanalyzer.services.analysis;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -6,6 +6,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import com.javarush.lipin.cryptoanalyzer.services.encryption.CaesarCipher;
+import com.javarush.lipin.cryptoanalyzer.services.file.FileService;
 
 public class BruteForce {
 
