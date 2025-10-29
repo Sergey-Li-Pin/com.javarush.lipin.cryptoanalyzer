@@ -3,7 +3,7 @@ package com.javarush.lipin.cryptoanalyzer.controllers;
 import java.util.Scanner;
 import com.javarush.lipin.cryptoanalyzer.services.encryption.CaesarCipher;
 import com.javarush.lipin.cryptoanalyzer.services.analysis.BruteForce;
-//import com.javarush.lipin.cryptoanalyzer.services.analysis.FrequencyAnalyzer;
+import com.javarush.lipin.cryptoanalyzer.services.analysis.FrequencyAnalyzer;
 import com.javarush.lipin.cryptoanalyzer.services.file.FileService;
 
 public class ConsoleUI {
@@ -35,10 +35,13 @@ public class ConsoleUI {
                     bruteForceFile();
                     break;
                 case "4":
+                    statisticalAnalysis();
+                    break;
+                case "5":
                     System.out.println("Выход из программы. До свидания!");
                     return;
                 default:
-                    System.out.println("Неверный выбор. Пожалуйста, выберите пункт от 1 до 4.");
+                    System.out.println("Неверный выбор. Пожалуйста, выберите пункт от 1 до 5.");
             }
         }
     }
@@ -48,7 +51,8 @@ public class ConsoleUI {
         System.out.println("1 - Зашифровать файл");
         System.out.println("2 - Расшифровать файл (нужен ключ)");
         System.out.println("3 - Brute force атака (подбор ключа)");
-        System.out.println("4 - Выход");
+        System.out.println("4 - Статистический анализ (автоматическая расшифровка)");
+        System.out.println("5 - Выход");
         System.out.print("Ваш выбор: ");
     }
 
@@ -111,5 +115,26 @@ public class ConsoleUI {
         }
         // Если расширения нет, просто добавляем суффикс в конец
         return originalPath + "_" + suffix;
+    }
+
+    private void statisticalAnalysis() {
+        try {
+            System.out.println("Введите путь к файлу для статистического анализа: ");
+            String filePath = consoleScanner.nextLine();
+            String text = FileService.readFile(filePath);
+
+            String decryptedText = BruteForce.decryptedWithStatisticalanalysis(text);
+
+            if (decryptedText != null) {
+                String outputPath = getOutputPath(filePath, "statistical_decrypt");
+                FileService.writeFile(outputPath, decryptedText);
+                System.out.println("Файл успешно расшифрован: " + outputPath);
+            } else {
+                System.out.println("Автоматическая расшифровка не удалась. Попробуйте brute force.");
+            }
+
+        } catch (Exception e) {
+            System.out.println("Ошибка при статистическом анализе: " + e.getMessage());
+        }
     }
 }

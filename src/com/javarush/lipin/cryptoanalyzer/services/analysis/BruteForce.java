@@ -62,4 +62,17 @@ public class BruteForce {
         System.out.println("Brute force завершен! Все " + totalKeys + " вариантов сохранены в папке: " + absoluteresultPath);
         System.out.println("Для нахождения правильного текста просмотрите файлы и найдите необходимый.");
     }
+
+    public static String decryptedWithStatisticalanalysis(String encryptedText) {
+        System.out.println("Запуск статистического анализа...");
+
+        int probableKey = FrequencyAnalyzer.findKeyByStatisticalAnalysis(encryptedText);
+        System.out.println("Найден наиболее вероятный ключ: " + probableKey);
+
+        String decryptedText = CaesarCipher.decrypt(encryptedText, probableKey);
+
+
+        System.out.println("Текст успешно расшифрован  с помощью статистического анализа!");
+        return decryptedText;
+    }
 }

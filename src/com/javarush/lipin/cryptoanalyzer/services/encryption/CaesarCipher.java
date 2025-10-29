@@ -65,4 +65,8 @@ public class CaesarCipher {
         return ALPHABET.length();
     }
 
+    public static String getAlphabet() {
+        return ALPHABET;
+    }
+
 }
