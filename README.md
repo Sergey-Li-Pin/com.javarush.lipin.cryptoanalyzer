@@ -22,7 +22,7 @@
 ## Структура проекта
 
 src/com/javarush/lipin/cryptoanalyzer/  
-├── Main.java 
+├── Main.java  
 ├── controllers/  
 │ └── ConsoleUI.java  
 ├── services/  
@@ -38,11 +38,13 @@ src/com/javarush/lipin/cryptoanalyzer/
 
 ### Компиляция:
 ```bash
-javac -d bin src/com/javarush/lipin/cryptoanalyzer/Main.java src/com/javarush/lipin/cryptoanalyzer/controllers/*.java src/com/javarush/lipin/cryptoanalyzer/services/**/*.java
+javac -d bin src/com/javarush/lipin/cryptoanalyzer/Main.java
+src/com/javarush/lipin/cryptoanalyzer/controllers/*.java
+src/com/javarush/lipin/cryptoanalyzer/services/**/*.java
 ```
 ### Запуск приложения
 ```bash
-java -cp bin com.javarush  .lipin.cryptoanalyzer.Main
+java -cp bin com.javarush.lipin.cryptoanalyzer.Main
 ```
 ## Использование
 
